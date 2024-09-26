@@ -14,14 +14,17 @@ library(tidyverse)
 ### Exercises 16-17
 
 We set up the data frame. Edit the data below to include information about your team members.
+LETTERS=[A,B,C,D,E,F]
 
 ```{r setup-tibble}
+hexnum <- paste(c(sample(c(0:9, LETTERS[0:5]), 6)), collapse='')
+hexnum <- paste("#", hexnum, sep='')
 team_data <- tibble(
   name = c("Herman Songe-Aakre", "Abdulrahman Albinali", "Rudy Adair", 
            "Matthew Hurrel", "Hamish Lothian"),
   github_username = c("hermansokr", "7aman4013", "rudyadair", 
                       "matthurrell", "hamlot12"), 
-  colour = c("seagreen4", "blue", "purple2", 
+  colour = c(hexnum, "blue", "purple2", 
              "red", "steelblue"),
   hobby = c("cricket", "math/coding", "cricket", 
             "badminton", "golf"),
@@ -61,11 +64,16 @@ p1 + labs(x = "Username on Github",
 
 Labs changes the labels of a plot.
 ### Exercise 20
-LETTERS=[A,B,C,D,E,F,G]
-```{r new-bar-plot}
 
+
+```{r new-bar-plot}
+hexnum <- paste(c(sample(c(0:9, LETTERS[0:5]), 6)), collapse='')
+hexnum <- paste("#", hexnum, sep='')
+print(hexnum)
 p2 <- ggplot(team_data, aes(x = hobby)) +
-  geom_bar(fill = paste0(sample(c(0:9, LETTERS[0:6]), 6, T)) )
+
+  geom_bar(fill = hexnum)
+  
 p2
 ```
 
